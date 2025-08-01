@@ -5,8 +5,8 @@ from typing import Dict, Optional
 
 import yaml
 
-from .config_models import ConfigSchema
-from .logging import get_logger
+from config_models import ConfigSchema
+from log_utils import get_logger
 
 class ConfigLoader:
     """Load and validate project configuration."""
@@ -24,7 +24,8 @@ class ConfigLoader:
         if config_path:
             with open(config_path, "r", encoding="utf-8") as f:
                 config_dict = yaml.safe_load(f)
-            self.base_dir = os.path.dirname(os.path.abspath(config_path))
+            # Treat the project root (parent of the config directory) as base
+            self.base_dir = os.path.dirname(os.path.dirname(os.path.abspath(config_path)))
         elif config:
             config_dict = config
             self.base_dir = os.getcwd()
