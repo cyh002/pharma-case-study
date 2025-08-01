@@ -18,9 +18,45 @@ This document provides an overview of the Excel workbook `Case Study - Data & AI
 ## Column Details and Examples
 
 ### 说明 (Notes)
-Two columns provide instructions:
-1. **Unnamed: 0** – description in Chinese, e.g. “表1.0 全量汇总报告” (Table 1.0 overall report).
-2. **Unnamed: 1** – additional notes, e.g. “（2021年月度全量汇总报告）”.
+This section contains detailed descriptions of each table and their column definitions:
+
+**Table 1.0 Overall Summary Report (2021 Monthly Overall Summary Report)**
+1. Column A: Filterable by Team/Region
+2. Columns B-E: Match personnel corresponding to approved target customers in MIS system according to 2021 Territory Q2 version
+3. Column S: Target customers
+4. Column U: Associated relationships
+5. Column V: End customer attributes
+6. Column AA: Newly defined Trade Channel
+
+**Table 1.1 RX Target Market (2021 Target Hospital Sales)**
+1. Column A: Filterable by Team/Region
+2. Columns B-E: Match personnel corresponding to approved target hospitals in MIS system according to 2021 Territory Q2 version
+3. Column S: Target hospitals
+4. Column U: Associated relationships
+5. Column V: End customer attributes
+6. Column Z: Newly defined Trade Channel
+
+**Table 1.2 E-commerce Target Market (2021 E-commerce Sales)**
+1. Contains sales of all products
+2. Column N: GM-approved e-commerce customers
+3. Column O: End customer attributes
+4. Column S: Newly defined Trade Channel
+
+**Table 1.3 Device Target Market (2021 Device Sales)**
+1. Column A: Filterable by Team/Region
+2. Columns B-E: Match personnel corresponding to approved target chains/pharmacies in MIS system according to 2021 Territory Q2 version
+3. Contains Dermaitx sales
+4. Column V: End customer attributes
+5. Column Z: Newly defined Trade Channel
+
+**Table 1.5 CSO&DSO Broad Market (2021 CSO, Diversified Operations Sales)**
+1. Contains sales of Fastum & Letrox & Dermaitx & Rilaten & Easyhaler & Priligy
+2. Column Q: End customer attributes
+3. Column U: Newly defined Trade Channel
+4. Column A: Filterable by Team/Region
+5. Columns B-D: Match personnel according to filing records
+6. Column V: End customer attributes
+7. Column Z: Newly defined Trade Channel
 
 ### 1.1 RX 目标市场 (RX Target Market)
 Example row:
