@@ -29,3 +29,18 @@ class DataLoader:
         if isinstance(data, pd.DataFrame):
             return {self.sheets[0]: data}
         return data
+
+    def load_concurrent(self, max_workers: int = 4) -> Dict[str, pd.DataFrame]:
+        """Load sheets concurrently using threads."""
+        from concurrent.futures import ThreadPoolExecutor, as_completed
+
+        result: Dict[str, pd.DataFrame] = {}
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            futures = {
+                executor.submit(pd.read_excel, self.excel_path, sheet_name=sheet): sheet
+                for sheet in self.sheets
+            }
+            for future in as_completed(futures):
+                sheet = futures[future]
+                result[sheet] = future.result()
+        return result
