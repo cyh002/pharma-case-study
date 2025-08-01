@@ -29,3 +29,21 @@ def test_load_configured_sheets():
             df_loaded = loaded[sheet]
             assert df_loaded.shape == df_expected.shape
 
+
+def test_load_dummy_excel(tmp_path):
+    """Ensure DataLoader correctly reads an Excel workbook with multiple sheets."""
+    df1 = pd.DataFrame({"A": [1, 2], "B": [3, 4]})
+    df2 = pd.DataFrame({"C": [5, 6]})
+
+    dummy_path = tmp_path / "dummy.xlsx"
+    with pd.ExcelWriter(dummy_path) as writer:
+        df1.to_excel(writer, sheet_name="Sheet1", index=False)
+        df2.to_excel(writer, sheet_name="Sheet2", index=False)
+
+    loader = DataLoader(str(dummy_path), ["Sheet1", "Sheet2"])
+    loaded = loader.load()
+
+    assert set(loaded.keys()) == {"Sheet1", "Sheet2"}
+    assert loaded["Sheet1"].equals(df1)
+    assert loaded["Sheet2"].equals(df2)
+
